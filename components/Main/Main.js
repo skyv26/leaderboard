@@ -1,31 +1,33 @@
 import {
-  Wrapper, ListContainer, List,
+  Wrapper, List,
   Paragraph, ChildText, PrimaryHeading, Button,
-  Input, Form, SecondaryHeading,
+  Input, Form,
 } from '../../HOC/HtmlElements.js';
 
 import './Main.scss';
 
 const Main = () => {
-  const main = Wrapper({
-    component: 'main',
-    className: 'main',
-  });
+  // const main = Wrapper({
+  //   component: 'main',
+  //   className: 'main',
+  // });
 
-  const sectionOne = Wrapper({
-    component: 'section',
-    className: 'section section-table',
-  });
+  // const sectionOne = Wrapper({
+  //   component: 'section',
+  //   className: 'section section-table',
+  // });
 
-  const sectionTwo = Wrapper({
-    component: 'section',
-    className: 'section section-form',
-  });
+  // const sectionTwo = Wrapper({
+  //   component: 'section',
+  //   className: 'section section-form',
+  // });
 
-  const UnorderList = ListContainer({
-    component: 'ul',
-    className: 'playerList',
-  });
+  // const UnorderList = ListContainer({
+  //   component: 'ul',
+  //   className: 'playerList',
+  // });
+
+  const UnorderList = document.querySelector('.playerList');
 
   const Container = Wrapper({
     component: 'div',
@@ -37,10 +39,10 @@ const Main = () => {
     className: 'score-heading',
   });
 
-  const heading2 = SecondaryHeading({
-    textContent: 'Add your score',
-    className: 'form-heading',
-  });
+  // const heading2 = SecondaryHeading({
+  //   textContent: 'Add your score',
+  //   className: 'form-heading',
+  // });
 
   const button = Button({
     textContent: 'Refresh',
@@ -95,18 +97,19 @@ const Main = () => {
   const form = Form({
     className: 'form',
   });
+
   form.append(
     playerNameInput,
     playerScoreInput,
     submit,
   );
 
-  sectionOne.append(Container);
-  sectionOne.append(UnorderList);
+  // sectionOne.append(Container);
+  // sectionOne.append(UnorderList);
 
-  sectionTwo.append(heading2, form);
-  main.append(sectionOne, sectionTwo);
-  return main;
+  // sectionTwo.append(heading2, form);
+  // main.append(sectionOne, sectionTwo);
+  // return main;
 };
 
 export default Main();
