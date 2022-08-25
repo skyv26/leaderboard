@@ -1,4 +1,4 @@
-import Element from "../utils/Element/Element";
+import Element from '../utils/Element/Element.js';
 
 const Anchor = (props) => Element({
   component: 'a',
@@ -44,15 +44,17 @@ const ChildText = (props) => Element({
   ...props,
 });
 
-
 const Input = (props) => Element({
   component: 'input',
   ...props,
 });
 
-
 const Wrapper = (props) => Element({
   ...props,
 });
 
-export { Anchor, Paragraph, ChildText, ListContainer, List, PrimaryHeading, SecondaryHeading, Button, Form, Input, Wrapper };
+export {
+  Anchor, Paragraph, ChildText,
+  ListContainer, List, PrimaryHeading,
+  SecondaryHeading, Button, Form, Input, Wrapper,
+};

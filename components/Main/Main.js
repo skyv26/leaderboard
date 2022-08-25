@@ -1,19 +1,23 @@
-import { Wrapper, ListContainer, List, Paragraph, ChildText, PrimaryHeading, Button, Input, Form, SecondaryHeading } from "../../HOC/HtmlElements";
+import {
+  Wrapper, ListContainer, List,
+  Paragraph, ChildText, PrimaryHeading, Button,
+  Input, Form, SecondaryHeading,
+} from '../../HOC/HtmlElements.js';
+
 import './Main.scss';
 
 const Main = () => {
-
   const main = Wrapper({
     component: 'main',
     className: 'main',
   });
 
-  const section_one = Wrapper({
+  const sectionOne = Wrapper({
     component: 'section',
-    className: 'section section-table'
+    className: 'section section-table',
   });
 
-  const section_two = Wrapper({
+  const sectionTwo = Wrapper({
     component: 'section',
     className: 'section section-form',
   });
@@ -28,14 +32,14 @@ const Main = () => {
     className: 'section-refresh_container',
   });
 
-  const heading_1 = PrimaryHeading({
+  const heading1 = PrimaryHeading({
     textContent: 'Recent scores',
-    className: 'score-heading'
+    className: 'score-heading',
   });
 
-  const heading_2 = SecondaryHeading({
+  const heading2 = SecondaryHeading({
     textContent: 'Add your score',
-    className: 'form-heading'
+    className: 'form-heading',
   });
 
   const button = Button({
@@ -43,63 +47,65 @@ const Main = () => {
     className: 'button',
   });
 
-  Container.append(heading_1, button);
+  Container.append(heading1, button);
 
   const dummyScore = [100, 20, 50, 78, 125, 77, 42];
 
   dummyScore.forEach((eachList, index) => {
     const list = List({
-      className: `player playerID_${index+1}`,
-    })
+      className: `player playerID_${index + 1}`,
+    });
 
     const paragraph = Paragraph({
       className: 'player_detail',
       textContent: 'Name: ',
-    })
+    });
 
     const span = ChildText({
       className: 'score',
       textContent: eachList,
-    })
+    });
 
     paragraph.append(span);
     list.append(paragraph);
     UnorderList.append(list);
-  })
+  });
 
   const playerNameInput = Input({
     type: 'text',
     className: 'input',
     placeholder: 'Your name',
-  })
+    ariaLabel: 'please enter yourname',
+  });
 
   const playerScoreInput = Input({
     type: 'number',
     className: 'input',
     placeholder: 'Your score',
-  })
+    ariaLabel: 'please try to attempy wisely',
+  });
 
   const submit = Input({
     type: 'submit',
     className: 'input',
     value: 'Submit',
-  })
+    ariaLabel: 'please submit button to check result',
+  });
 
   const form = Form({
-    className: 'form'
+    className: 'form',
   });
   form.append(
-    playerNameInput, 
-    playerScoreInput, 
-    submit
+    playerNameInput,
+    playerScoreInput,
+    submit,
   );
 
-  section_one.append(Container);
-  section_one.append(UnorderList);
+  sectionOne.append(Container);
+  sectionOne.append(UnorderList);
 
-  section_two.append(heading_2, form)
-  console.log(section_two);
-  main.append(section_one, section_two);
+  sectionTwo.append(heading2, form);
+  main.append(sectionOne, sectionTwo);
   return main;
 };
 
