@@ -1,11 +1,19 @@
 import './Header.scss';
-import { Paragraph } from "../../HOC/HtmlElements";
+import { Paragraph, Wrapper } from "../../HOC/HtmlElements";
 
 const Header = () => {
-  Paragraph({
+  const logo = Paragraph({
     textContent: 'Leaderboard',
-    className: 'logo'
+    className: 'header-logo'
   });
+
+  const header = Wrapper({
+    component: 'header',
+    className: 'header',
+  })
+
+  header.append(logo);
+  return header;
 };
 
-export default Header;
+export default Header();

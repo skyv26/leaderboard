@@ -1,0 +1,105 @@
+.main {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  margin-top: 7rem;
+  justify-content: space-between;
+  font-family: 'Comic Neue', cursive;
+  gap: 10rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+
+  &-refresh_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8rem;
+    
+    .button {
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 1.65rem;
+      padding: 0.6rem 2rem;
+      box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem black;
+
+      &:active {
+        transform: translate(0.5rem, 0.5rem);
+        box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem transparent;
+      }
+    }
+  }
+
+  &-table {
+    gap: 2.6rem;
+    width: 100%;
+
+    .playerList {
+      border: 0.3rem solid black;
+    }
+
+    .player {
+      padding: 0.6rem;
+    }
+
+    .player:nth-child(even) {
+      background-color: rgb(214, 214, 214);
+    }
+
+    .player_detail {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.6rem;
+    width: 100%;
+    margin-right: auto;
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .input:not(:nth-child(3)) {
+      height: 4rem;
+      padding-left: 0.6rem;
+      border: 0.4rem solid black;
+
+      &::placeholder {
+        color: black;
+        font-size: 1.75rem;
+        font-family: bold;
+        font-family: inherit;
+      }
+    }
+
+    .input:nth-child(3) {
+      width: max-content;
+      align-self: flex-end;
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 1.65rem;
+      padding: 0.6rem 2rem;
+      box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem black;
+
+      &:active {
+        transform: translate(0.5rem, 0.5rem);
+        box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem transparent;
+      }
+    }
+  }
+
+  .score-heading, .form-heading {
+    font-size: 3.6rem;
+  }
+
+
+}
