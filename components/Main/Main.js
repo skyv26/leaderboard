@@ -4,6 +4,8 @@ import {
   Input, Form,
 } from '../../HOC/HtmlElements.js';
 
+import Api from '../../utils/Api/Api.js';
+
 import './Main.scss';
 
 const Main = () => {
@@ -28,6 +30,8 @@ const Main = () => {
   // });
 
   const UnorderList = document.querySelector('.playerList');
+  const refreshContainer = document.querySelector('.section-refresh_container');
+  const sectionForm = document.querySelector('.section-form');
 
   const Container = Wrapper({
     component: 'div',
@@ -47,31 +51,35 @@ const Main = () => {
   const button = Button({
     textContent: 'Refresh',
     className: 'button',
+    onclick: () => {
+      (async () => {
+        const { result } = await Api.get();
+        UnorderList.textContent = '';
+        result.forEach((eachList, index) => {
+          const list = List({
+            className: 'player',
+            id: `playerID-${index + 1}`,
+          });
+
+          const paragraph = Paragraph({
+            className: 'player_detail',
+            textContent: `${eachList.user}: `,
+          });
+
+          const span = ChildText({
+            className: 'score',
+            textContent: eachList.score,
+          });
+
+          paragraph.append(span);
+          list.append(paragraph);
+          UnorderList.append(list);
+        });
+      })();
+    },
   });
-
-  Container.append(heading1, button);
-
-  const dummyScore = [100, 20, 50, 78, 125, 77, 42];
-
-  dummyScore.forEach((eachList, index) => {
-    const list = List({
-      className: `player playerID_${index + 1}`,
-    });
-
-    const paragraph = Paragraph({
-      className: 'player_detail',
-      textContent: 'Name: ',
-    });
-
-    const span = ChildText({
-      className: 'score',
-      textContent: eachList,
-    });
-
-    paragraph.append(span);
-    list.append(paragraph);
-    UnorderList.append(list);
-  });
+  refreshContainer.appendChild(button);
+  // Container.append(heading1, button);
 
   const playerNameInput = Input({
     type: 'text',
@@ -96,6 +104,13 @@ const Main = () => {
 
   const form = Form({
     className: 'form',
+    onsubmit: (e) => {
+      e.preventDefault();
+      const user = playerNameInput.value;
+      const score = playerScoreInput.value;
+      Api.post({ user, score });
+      form.reset();
+    },
   });
 
   form.append(
@@ -104,12 +119,12 @@ const Main = () => {
     submit,
   );
 
+  sectionForm.append(form);
   // sectionOne.append(Container);
   // sectionOne.append(UnorderList);
 
   // sectionTwo.append(heading2, form);
   // main.append(sectionOne, sectionTwo);
-  // return main;
 };
 
-export default Main();
+export default Main;
