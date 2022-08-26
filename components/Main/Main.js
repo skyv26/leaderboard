@@ -1,6 +1,5 @@
 import {
-  Wrapper, List,
-  Paragraph, ChildText, PrimaryHeading, Button,
+  List, Paragraph, ChildText, Button,
   Input, Form,
 } from '../../HOC/HtmlElements.js';
 
