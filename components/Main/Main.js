@@ -33,15 +33,15 @@ const Main = () => {
   const refreshContainer = document.querySelector('.section-refresh_container');
   const sectionForm = document.querySelector('.section-form');
 
-  const Container = Wrapper({
-    component: 'div',
-    className: 'section-refresh_container',
-  });
+  // const Container = Wrapper({
+  //   component: 'div',
+  //   className: 'section-refresh_container',
+  // });
 
-  const heading1 = PrimaryHeading({
-    textContent: 'Recent scores',
-    className: 'score-heading',
-  });
+  // const heading1 = PrimaryHeading({
+  //   textContent: 'Recent scores',
+  //   className: 'score-heading',
+  // });
 
   // const heading2 = SecondaryHeading({
   //   textContent: 'Add your score',
