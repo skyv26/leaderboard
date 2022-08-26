@@ -7,78 +7,54 @@ import Api from '../../utils/Api/Api.js';
 
 import './Main.scss';
 
+const UnorderList = document.querySelector('.playerList');
+const scoreBoardHandler = () => {
+  (async () => {
+    const { result } = await Api.get();
+    UnorderList.textContent = '';
+    result.forEach((eachList, index) => {
+      const list = List({
+        className: 'player',
+        id: `playerID-${index + 1}`,
+      });
+
+      const paragraph = Paragraph({
+        className: 'player_detail',
+        textContent: `${eachList.user}: `,
+      });
+
+      const span = ChildText({
+        className: 'score',
+        textContent: eachList.score,
+      });
+
+      paragraph.append(span);
+      list.append(paragraph);
+      UnorderList.append(list);
+    });
+  })();
+};
+
 const Main = () => {
-  // const main = Wrapper({
-  //   component: 'main',
-  //   className: 'main',
-  // });
-
-  // const sectionOne = Wrapper({
-  //   component: 'section',
-  //   className: 'section section-table',
-  // });
-
-  // const sectionTwo = Wrapper({
-  //   component: 'section',
-  //   className: 'section section-form',
-  // });
-
-  // const UnorderList = ListContainer({
-  //   component: 'ul',
-  //   className: 'playerList',
-  // });
-
-  const UnorderList = document.querySelector('.playerList');
   const refreshContainer = document.querySelector('.section-refresh_container');
   const sectionForm = document.querySelector('.section-form');
 
-  // const Container = Wrapper({
-  //   component: 'div',
-  //   className: 'section-refresh_container',
-  // });
-
-  // const heading1 = PrimaryHeading({
-  //   textContent: 'Recent scores',
-  //   className: 'score-heading',
-  // });
-
-  // const heading2 = SecondaryHeading({
-  //   textContent: 'Add your score',
-  //   className: 'form-heading',
-  // });
+  const errorMessage = Paragraph({
+    className: 'player_detail',
+    textContent: '!! Please Add Some Data !!',
+  });
 
   const button = Button({
     textContent: 'Refresh',
     className: 'button',
     onclick: () => {
-      (async () => {
-        const { result } = await Api.get();
-        UnorderList.textContent = '';
-        result.forEach((eachList, index) => {
-          const list = List({
-            className: 'player',
-            id: `playerID-${index + 1}`,
-          });
-
-          const paragraph = Paragraph({
-            className: 'player_detail',
-            textContent: `${eachList.user}: `,
-          });
-
-          const span = ChildText({
-            className: 'score',
-            textContent: eachList.score,
-          });
-
-          paragraph.append(span);
-          list.append(paragraph);
-          UnorderList.append(list);
-        });
-      })();
+      scoreBoardHandler();
+      if (UnorderList.children.length < 1) {
+        UnorderList.append(errorMessage);
+      }
     },
   });
   refreshContainer.appendChild(button);
-  // Container.append(heading1, button);
 
   const playerNameInput = Input({
     type: 'text',
@@ -117,13 +93,12 @@ const Main = () => {
     playerScoreInput,
     submit,
   );
-
+  if (UnorderList.children.length < 1) {
+    errorMessage.textContent = 'please wait...';
+    UnorderList.append(errorMessage);
+  }
+  scoreBoardHandler();
   sectionForm.append(form);
-  // sectionOne.append(Container);
-  // sectionOne.append(UnorderList);
-
-  // sectionTwo.append(heading2, form);
-  // main.append(sectionOne, sectionTwo);
 };
 
 export default Main;
