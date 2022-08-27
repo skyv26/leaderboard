@@ -6,7 +6,7 @@ const App = () => {
   const wrapper = Wrapper({
     component: 'div',
   });
-  wrapper.append(Header, Main);
+  wrapper.append(Header, Main());
   return wrapper;
 };
 
