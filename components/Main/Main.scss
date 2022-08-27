@@ -7,6 +7,7 @@
   justify-content: space-between;
   font-family: 'Comic Neue', cursive;
   gap: 5rem;
+
   @media (min-width: 600px) {
     gap: 5rem;
     flex-direction: row;
@@ -35,9 +36,11 @@
       border-radius: 0.6rem;
       background-color: rgb(247, 174, 18);
       box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem rgb(129, 91, 9);
+
       @media (min-width: 600px) {
         font-size: 1.65rem;
       }
+
       &:active {
         transform: translate(0.5rem, 0.5rem);
         box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem transparent;
@@ -62,6 +65,7 @@
       overflow-y: scroll;
       scroll-behavior: smooth;
       padding-right: 2rem;
+
       @media (min-width: 600px) {
         height: 30rem;
       }
@@ -92,7 +96,6 @@
     height: max-content;
     position: relative;
 
-
     .form {
       display: flex;
       flex-direction: column;
@@ -118,7 +121,7 @@
       }
     }
 
-    .input:nth-child(3) {
+    .submit-btn {
       width: max-content;
       align-self: flex-end;
       border: none;
@@ -129,7 +132,7 @@
       font-size: 1.65rem;
       padding: 0.6rem 2rem;
       box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem rgb(0, 58, 0);
-      
+
       &:hover {
         cursor: pointer;
       }
@@ -182,6 +185,7 @@
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.9);
     text-shadow: 0.2rem 0.2rem 0.1rem cornsilk, -0.2rem 0.2rem 0 rgb(255, 0, 123);
+
     @media (min-width: 600px) {
       font-size: 3.6rem;
     }

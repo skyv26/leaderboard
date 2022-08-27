@@ -98,7 +98,7 @@ const Main = () => {
 
   const submit = Input({
     type: 'submit',
-    className: 'input',
+    className: 'input submit-btn',
     value: 'Submit',
     ariaLabel: 'please submit button to check result',
   });
