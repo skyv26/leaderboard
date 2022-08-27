@@ -16,7 +16,7 @@ class Api {
       try {
         dataHolder = await (await fetch(this.url, obj ? option : [])).json();
       } catch (err) {
-        dataHolder = err.message;
+        dataHolder = new Error('Oops ! Something went wrong ...').message;
       }
       return dataHolder;
     })();

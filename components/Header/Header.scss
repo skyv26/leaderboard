@@ -1,10 +1,12 @@
 
 .header {
   padding: 3rem 0 0 2rem;
+  text-align: center;
 
   &-logo {
-    font-size: 4rem;
-    font-family: 'Comic Neue', cursive;
-    font-weight: bold;
+    font-size: 4.25rem;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    color: cornsilk;
+    text-shadow: 0 0.5rem 0.6rem crimson, 0 1rem 1rem cornsilk;
   }
 }
