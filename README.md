@@ -6,9 +6,9 @@
 
 ## Built With
 
-- Major languages: JavaScript (ES6)
+- Major languages: JavaScript (ES6) with Promises and API.
 - Frameworks: No framework only Vanilla JS
-- Technologies used: HTML, CSS, JavaScript, WebPack, Sortablejs
+- Technologies used: HTML, CSS, JavaScript, WebPack
 
 ## Live Demo
 
@@ -62,8 +62,6 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+## 📝 License
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+This project is [MIT](./LICENSE) licensed.
