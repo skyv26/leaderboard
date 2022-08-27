@@ -11,29 +11,30 @@ class Api {
       },
       body: JSON.stringify(obj),
     };
-    return (async () => (await fetch(this.url, obj ? option : [])).json())();
+    return (async () => {
+      let dataHolder;
+      try {
+        dataHolder = await (await fetch(this.url, obj ? option : [])).json();
+      } catch (err) {
+        dataHolder = err.message;
+      }
+      return dataHolder;
+    })();
   }
 
-  get = () => {
-    let data;
-    try {
-      data = this.promisedData();
-    } catch (err) {
-      data = new Error('Oops! Something went wrong !');
-    }
+  get = async () => {
+    const data = await this.promisedData();
     return data;
   }
 
-  post(obj) {
-    if (Object.keys(obj).length) {
-      try {
-        this.promisedData(obj);
-      } catch (err) {
-        throw err.message;
-      }
+  post = async (obj) => {
+    let data;
+    if (obj.user !== '' && obj.score !== '') {
+      data = await this.promisedData(obj);
     } else {
-      throw new Error('Please fill the form before submission ...');
+      data = new Error('Please fill the form, before submission ...').message;
     }
+    return data;
   }
 }
 

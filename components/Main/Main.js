@@ -10,7 +10,11 @@ import './Main.scss';
 const UnorderList = document.querySelector('.playerList');
 const scoreBoardHandler = () => {
   (async () => {
-    const { result } = await Api.get();
+    const resultant = await Api.get();
+    if (typeof resultant === 'string') {
+      return false;
+    }
+    const { result } = resultant;
     UnorderList.textContent = '';
     result.forEach((eachList, index) => {
       const list = List({
@@ -32,6 +36,7 @@ const scoreBoardHandler = () => {
       list.append(paragraph);
       UnorderList.append(list);
     });
+    return true;
   })();
 };
 
@@ -83,8 +88,14 @@ const Main = () => {
       e.preventDefault();
       const user = playerNameInput.value;
       const score = playerScoreInput.value;
-      Api.post({ user, score });
-      form.reset();
+      (async () => {
+        const resultant = await Api.post({ user, score });
+        if (typeof resultant === 'string') {
+          return false;
+        }
+        form.reset();
+        return true;
+      })();
     },
   });
 
