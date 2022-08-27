@@ -14,12 +14,26 @@ class Api {
     return (async () => (await fetch(this.url, obj ? option : [])).json())();
   }
 
-  get() {
-    return this.promisedData();
+  get = () => {
+    let data;
+    try {
+      data = this.promisedData();
+    } catch (err) {
+      data = new Error('Oops! Something went wrong !');
+    }
+    return data;
   }
 
   post(obj) {
-    this.promisedData(obj);
+    if (Object.keys(obj).length) {
+      try {
+        this.promisedData(obj);
+      } catch (err) {
+        throw err.message;
+      }
+    } else {
+      throw new Error('Please fill the form before submission ...');
+    }
   }
 }
 
