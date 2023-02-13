@@ -22,7 +22,7 @@
 
   &-refresh_container {
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     gap: 8rem;
     align-items: center;
@@ -36,6 +36,7 @@
       border-radius: 0.6rem;
       background-color: rgb(247, 174, 18);
       box-shadow: 0.5rem 0.5rem 0.25rem 0.1rem rgb(129, 91, 9);
+      cursor: pointer;
 
       @media (min-width: 600px) {
         font-size: 1.65rem;
@@ -180,6 +181,10 @@
         background-color: rgb(0, 194, 0);
         transition: opacity 0.5s ease-in;
       }
+    }
+
+    @media (min-width: 600px) {
+      width: 50%;
     }
   }
 
