@@ -22,7 +22,7 @@
 
   &-refresh_container {
     display: flex;
-    width: 100%;
+    width: 50%;
     justify-content: space-between;
     gap: 8rem;
     align-items: center;
@@ -58,7 +58,7 @@
 
   &-table {
     gap: 2.6rem;
-    width: 100%;
+    width: 50%;
 
     .playerList {
       height: 20rem;
