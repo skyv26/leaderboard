@@ -1,6 +1,6 @@
 class Api {
   constructor() {
-    this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/JqyMjlAIfzoPkOxklElb/scores/';
+    this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/7TFRZjVXv77rLqtHEHfB/scores/';
   }
 
   promisedData = (obj = null) => {
