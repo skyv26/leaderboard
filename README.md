@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[coming soon...]()
+[Live Link](https://skyv26.github.io/leaderboard/)
 
 
 ## Getting Started
