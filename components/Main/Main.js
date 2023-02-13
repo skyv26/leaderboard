@@ -109,19 +109,28 @@ const Main = () => {
       e.preventDefault();
       const user = playerNameInput.value;
       const score = playerScoreInput.value;
-      (async () => {
-        const resultant = await Api.post({ user, score });
-        if (typeof resultant === 'string') {
-          msg.textContent = resultant;
+      if (score > 999999) {
+        msg.textContent = 'Score should be less than 999999';
+        (async () => {
           msg.classList.add('warning');
           await delay(5000);
           msg.classList.remove('warning');
-          return false;
-        }
-        form.reset();
-        scoreBoardHandler();
-        return true;
-      })();
+        })();
+      } else {
+        (async () => {
+          const resultant = await Api.post({ user, score });
+          if (typeof resultant === 'string') {
+            msg.textContent = resultant;
+            msg.classList.add('warning');
+            await delay(5000);
+            msg.classList.remove('warning');
+            return false;
+          }
+          form.reset();
+          scoreBoardHandler();
+          return true;
+        })();
+      }
     },
   });
 
