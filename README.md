@@ -164,10 +164,7 @@ If you like this project then please give a ⭐️ and also share your feedback 
 
 ## Acknowledgments
 
-For Design Inspiration I would like to Acknowledge
-<a href="https://www.behance.net/adagio07" rel="noopener" target="_blank"><strong>Cindy Shin</strong></a> ❤️
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Thanks to everyone who helped me ❤️
 
 <!-- LICENSE -->
 
