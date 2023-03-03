@@ -26,7 +26,7 @@
 
 > **This project aims to create a leaderboard system to track and display user performance in an engaging way. Through the use of an interactive and intuitive interface, users can quickly and easily view scores and rankings of their peers. The leaderboard system is driven by a backend database.**
 
-**[Leaderboard]** is a vanilla-js blog website.
+**Leaderboard** is a vanilla-js blog website.
 
 ## 🛠 Built With <a name="built-with"></a>
 
