@@ -166,6 +166,8 @@ If you like this project then please give a ⭐️ and also share your feedback 
 
 Thanks to everyone who helped me ❤️
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
