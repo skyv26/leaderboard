@@ -57,8 +57,6 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Link to your deployed project.
-
 - [**See Project 🚀**](https://skyv26.github.io/leaderboard/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
